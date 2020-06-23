@@ -9,7 +9,7 @@
 
 int main(int argc, char *argv[]) {
     int fd = -1;
-    char buffer[10] = {0};
+    char buffer[4096] = {0};
     int ret = 0;
 
     if(argc != 2) {
@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     fd = open("./test.txt",O_RDONLY);
 
     if(fd == -1) {
-        printf("Error in opening the file error=%s\n",strerror(errno));
+        printf("Error in opening the file error_num=%d  error=%s\n",errno,strerror(errno));
         exit(EXIT_FAILURE);
     }
 
